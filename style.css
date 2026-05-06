@@ -1,13 +1,9 @@
-/* CSS (Cascading Style Sheets) - Mengatur Tampilan */
-
-/* Reset margin dan padding default browser */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Variabel Warna untuk memudahkan penggantian tema */
 :root {
     --bg-color: #f4f7f6;
     --card-bg: #ffffff;
@@ -15,10 +11,11 @@
     --primary-color: #2c3e50;
     --accent-color: #3498db;
     --secondary-text: #7f8c8d;
-    --shadow: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow: 0 4px 12px rgba(0,0,0,0.1);
+    --border-color: #e0e0e0;
 }
 
-/* Gaya untuk Tema Gelap (akan diaktifkan via JavaScript) */
+/* Gaya Tema Gelap */
 body.dark-mode {
     --bg-color: #1a1a1a;
     --card-bg: #2c2c2c;
@@ -26,6 +23,8 @@ body.dark-mode {
     --primary-color: #ecf0f1;
     --accent-color: #5dade2;
     --secondary-text: #bdc3c7;
+    --shadow: 0 4px 12px rgba(0,0,0,0.3);
+    --border-color: #444444;
 }
 
 body {
@@ -44,24 +43,62 @@ body {
     padding: 40px;
     border-radius: 12px;
     box-shadow: var(--shadow);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 header {
     text-align: center;
-    border-bottom: 2px solid var(--accent-color);
-    padding-bottom: 20px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 30px;
     margin-bottom: 30px;
+    position: relative;
+}
+
+.photo-wrapper {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background-color: var(--border-color);
+    overflow: hidden;
+    border: 4px solid var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary-text);
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none; 
+}
+
+.profile-img[src]:not([src=""]) {
+    display: block; 
+}
+
+.photo-wrapper:has(.profile-img[src=""])::after {
+    content: "Masukkan Foto Disini";
+    font-size: 0.8rem;
+    color: var(--secondary-text);
 }
 
 h1 {
     color: var(--primary-color);
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     margin-bottom: 5px;
+    font-weight: 700;
 }
 
 .subtitle {
     font-style: italic;
-    color: var(--secondary-text);
+    color: var(--accent-color);
+    font-size: 1rem;
+    margin-bottom: 15px;
 }
 
 h2 {
@@ -69,10 +106,13 @@ h2 {
     border-left: 5px solid var(--accent-color);
     padding-left: 15px;
     margin: 30px 0 15px;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
 }
 
-/* Grid layout untuk data diri */
+section {
+    margin-bottom: 20px;
+}
+
 .info-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -81,51 +121,80 @@ h2 {
 
 .info-grid p {
     margin: 5px 0;
+    font-size: 0.95rem;
 }
 
-/* Gaya List */
-ul {
+.info-grid strong {
+    color: var(--primary-color);
+}
+
+.contact-list {
     list-style-type: none;
 }
 
-.contact-list li, .list-style li {
-    margin-bottom: 8px;
+.contact-list li {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
 }
 
 .contact-list a {
     color: var(--accent-color);
     text-decoration: none;
+    font-weight: 500;
 }
 
 .contact-list a:hover {
     text-decoration: underline;
 }
 
-/* Timeline Pendidikan */
-.timeline .item {
+.timeline-item {
     margin-bottom: 20px;
-    position: relative;
     padding-left: 20px;
-    border-left: 2px solid #ddd;
+    border-left: 2px solid var(--border-color);
+    position: relative;
 }
 
-.timeline .date {
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent-color);
+}
+
+.timeline-item .date {
     font-weight: bold;
     color: var(--secondary-text);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    margin-bottom: 2px;
 }
 
-/* Tag style untuk keahlian dan hobi */
+.timeline-item h3 {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 2px;
+}
+
+.timeline-item .institution {
+    font-style: italic;
+    margin-bottom: 4px;
+}
+
+/* Tags (Keahlian & Hobi) */
 .tag-list {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    list-style: none;
 }
 
 .tag-list li {
     background-color: var(--accent-color);
     color: white;
-    padding: 5px 15px;
+    padding: 6px 16px;
     border-radius: 20px;
     font-size: 0.9rem;
     transition: transform 0.2s;
@@ -136,42 +205,62 @@ ul {
     cursor: default;
 }
 
-/* Kolom ganda */
 .two-columns {
     display: flex;
     gap: 40px;
 }
 
-/* Tombol dan Footer */
+.col {
+    flex: 1;
+}
+
 footer {
     margin-top: 50px;
     text-align: center;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid var(--border-color);
     padding-top: 20px;
+    font-size: 0.9rem;
+    color: var(--secondary-text);
 }
 
-#btn-mode {
+.theme-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
     background-color: var(--primary-color);
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 8px 16px;
+    border-radius: 6px;
     cursor: pointer;
-    margin-bottom: 15px;
+    font-size: 0.85rem;
     font-weight: bold;
+    transition: opacity 0.2s;
 }
 
-#btn-mode:hover {
-    opacity: 0.9;
+.theme-btn:hover {
+    opacity: 0.85;
 }
 
-/* Responsivitas untuk layar kecil */
 @media (max-width: 600px) {
     .container {
         padding: 20px;
     }
+    
     .two-columns {
         flex-direction: column;
         gap: 0;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .theme-btn {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin-bottom: 10px;
+        width: 100%;
     }
 }

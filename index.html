@@ -4,19 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daftar Riwayat Hidup – Moreno Irawan Syahputra</title>
-    <!-- Menghubungkan ke file CSS eksternal -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
         <header>
-            <h1>Daftar Riwayat Hidup</h1>
-            <p class="subtitle">Curriculum Vitae</p>
+            <button id="btn-mode" class="theme-btn">🌙 Ganti Tema Gelap</button>
+            
+            <div class="photo-wrapper">
+                <img src="moreno_3x4 (1).jpg" alt="Foto Profil" class="profile-img" id="profile-photo">
+            </div>
+
+            <h1>Moreno Irawan Syahputra</h1>
+            <p class="subtitle">S1 Teknik Informatika · Mahasiswa</p>
         </header>
 
         <main>
-            <section id="data-diri">
+            
+            <section>
                 <h2>Data Diri</h2>
                 <div class="info-grid">
                     <p><strong>Nama Lengkap:</strong> Moreno Irawan Syahputra</p>
@@ -28,78 +34,82 @@
                 </div>
             </section>
 
-            <section id="kontak">
+            
+            <section>
                 <h2>Kontak</h2>
                 <ul class="contact-list">
-                    <li><strong>Email:</strong> <a href="mailto:morenoirawan@email.com">morenoirawan@email.com</a></li>
-                    <li><strong>Telepon:</strong> 0813-3456-7890</li>
-                    <li><strong>Alamat:</strong> Surabaya, Jawa Timur</li>
-                    <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/morenoirawan" target="_blank">linkedin.com/in/morenoirawan</a></li>
+                    <li>📧 <a href="mailto:morenoirawan@email.com">morenoirawan@email.com</a></li>
+                    <li>📞 <a href="tel:081334567890">0813-3456-7890</a></li>
+                    <li>📍 Surabaya, Jawa Timur</li>
+                    <li>💼 <a href="https://linkedin.com/in/morenoirawan" target="_blank">linkedin.com/in/morenoirawan</a></li>
                 </ul>
             </section>
 
-            <section id="pendidikan">
+            <section class="timeline">
                 <h2>Riwayat Pendidikan</h2>
-                <div class="timeline">
-                    <div class="item">
-                        <h3>S1 Teknik Informatika – Institut Teknologi Adhi Tama Surabaya</h3>
-                        <p class="date">2024 – 2028</p>
-                        <p>IPK: 3.70 / 4.00 · Skripsi: Sistem Rekomendasi Berbasis AI</p>
-                    </div>
-                    <div class="item">
-                        <h3>SMA IPIEM Surabaya</h3>
-                        <p class="date">2021 – 2024</p>
-                        <p>Jurusan IPA · Nilai Rata-rata: 89.5 / 100</p>
-                    </div>
-                    <div class="item">
-                        <h3>SMP Negeri 29 Surabaya</h3>
-                        <p class="date">2018 – 2021</p>
-                    </div>
+                
+                <div class="timeline-item">
+                    <div class="date">2024 – 2028</div>
+                    <h3>S1 Teknik Informatika</h3>
+                    <p class="institution">Institut Teknologi Adhi Tama Surabaya</p>
+                    <p>IPK: 3.70 / 4.00 · Skripsi: Sistem Rekomendasi Berbasis AI</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="date">2021 – 2024</div>
+                    <h3>SMA IPIEM Surabaya</h3>
+                    <p>Jurusan IPA · Nilai Rata-rata: 89.5 / 100</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="date">2018 – 2021</div>
+                    <h3>SMP Negeri 29 Surabaya</h3>
                 </div>
             </section>
 
-            <div class="two-columns">
-                <section id="keahlian">
-                    <h2>Keahlian</h2>
-                    <ul class="tag-list">
-                        <li>HTML & CSS</li>
-                        <li>JavaScript</li>
-                        <li>Python</li>
-                        <li>Microsoft Office</li>
-                        <li>Google Colab</li>
-                    </ul>
-                </section>
+            
+            <section>
+                <h2>Keahlian</h2>
+                <ul class="tag-list">
+                    <li>HTML & CSS</li>
+                    <li>JavaScript</li>
+                    <li>Python</li>
+                    <li>Microsoft Office</li>
+                    <li>Google Colab</li>
+                </ul>
+            </section>
 
-                <section id="bahasa">
+            <!-- Kolom Ganda: Bahasa & Hobi -->
+            <div class="two-columns">
+                <section>
                     <h2>Bahasa</h2>
-                    <ul class="list-style">
+                    <ul class="tag-list">
                         <li>Indonesia (Bahasa Ibu)</li>
                         <li>Inggris (Mahir)</li>
                         <li>Jawa (Mahir)</li>
                     </ul>
                 </section>
-            </div>
 
-            <section id="hobi">
-                <h2>Hobi & Minat</h2>
-                <ul class="tag-list">
-                    <li>Membaca</li>
-                    <li>Fotografi</li>
-                    <li>Open Source</li>
-                    <li>Desain Grafis</li>
-                    <li>Hiking</li>
-                    <li>Blogging Teknologi</li>
-                </ul>
-            </section>
+                <section>
+                    <h2>Hobi & Minat</h2>
+                    <ul class="tag-list">
+                        <li>Membaca</li>
+                        <li>Fotografi</li>
+                        <li>Open Source</li>
+                        <li>Desain Grafis</li>
+                        <li>Hiking</li>
+                        <li>Blogging Teknologi</li>
+                    </ul>
+                </section>
+            </div>
         </main>
 
         <footer>
-            <button id="btn-mode">Ganti Tema Gelap/Terang</button>
-            <p>&copy; 2024 Moreno Irawan Syahputra</p>
+            <p>© 2026 Moreno Irawan Syahputra. All Rights Reserved.</p>
         </footer>
     </div>
 
-    <!-- Menghubungkan ke file JavaScript eksternal -->
     <script src="script.js"></script>
 </body>
 </html>
+                    
